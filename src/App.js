@@ -6,7 +6,8 @@ import { useMemo } from "react";
  import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./scenes/dashboard/dashboard";
 import Layout from "./scenes/layout/layout";
-
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import {api} from './state/api'
 
 
 function App() {

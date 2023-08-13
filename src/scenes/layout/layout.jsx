@@ -14,11 +14,12 @@ const isNonMobile = useMediaQuery("(min-width:600px)");
 const [isSidebarOpen, setIsSidebarOpen]= useState(true);
 const userId = useSelector ((state)=>state.global.userId);
 console.log(userId)
-const {data, refetch} = useGetUserQuery(userId);
-useEffect(()=>{
-refetch();
-setLayout(data)
-},[])
+const {data, refetch} = useGetUserQuery("63701cc1f032398675000120");
+// useEffect(()=>{
+// refetch();
+// setLayout(data)
+// console.log("injmj",data)
+// },[])
 console.log("data", data);
 
   return (
