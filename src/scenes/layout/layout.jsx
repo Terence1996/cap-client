@@ -9,12 +9,11 @@ import { useGetUserQuery } from '../../state/api.js';
 
 
  const Layout = () => {
-const [layout, setLayout] = useState({})
+// const [layout, setLayout] = useState({})
 const isNonMobile = useMediaQuery("(min-width:600px)");
 const [isSidebarOpen, setIsSidebarOpen]= useState(true);
 const userId = useSelector ((state)=>state.global.userId);
-console.log(userId)
-const {data, refetch} = useGetUserQuery("63701cc1f032398675000120");
+const {data} = useGetUserQuery(userId);
 // useEffect(()=>{
 // refetch();
 // setLayout(data)
@@ -24,19 +23,17 @@ console.log("data", data);
 
   return (
    <Box display={isNonMobile?"flex":"block"} width="100%" height="100%">
-    <pre>
-      {JSON.stringify(layout)}
-    </pre>
+   
     <Sidebar
-    user={ data || {}}
+    user={ data || {} }
     isNonMobile={isNonMobile}
     drawerWidth="250px"
     isSidebarOpen={isSidebarOpen}
     setIsSidebarOpen={setIsSidebarOpen}
     />
-<Box>
+<Box flexGrow={1}>
  <Navbar 
-//  user={ data || {}}
+ user={ data || {}}
  isSidebarOpen={isSidebarOpen}
  setIsSidebarOpen={setIsSidebarOpen}
  />

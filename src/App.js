@@ -6,9 +6,16 @@ import { useMemo } from "react";
  import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./scenes/dashboard/dashboard";
 import Layout from "./scenes/layout/layout";
-import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
-import {api} from './state/api'
-
+import { Products } from "scenes/products/product";
+import { Customers } from "scenes/customers/customer";
+import { Transactions } from "scenes/transactions/transaction";
+import Geography from "scenes/geography/geography";
+import Overview from "scenes/overview/overview";
+import Daily from "scenes/daily/daily";
+import Monthly from "scenes/monthly/monthly";
+import Breakdown from "scenes/breakdown/breakdown";
+import Admin from "scenes/admin/admin";
+import { Performance } from "scenes/performance/performance";
 
 function App() {
   const mode = useSelector((state)=>state.global.mode);
@@ -22,6 +29,16 @@ function App() {
           <Route element={<Layout/>}>
           <Route path="/" element={<Navigate to="/dashboard" replace/>}/>
           <Route path="/dashboard" element= {<Dashboard/>}/>
+    <Route path = "/products" element={<Products/>} />
+    <Route path="/customers" element={<Customers/>}/>
+    <Route path="/transactions" element={<Transactions/>}/>
+    <Route path="/geography" element={<Geography/>}/>
+    <Route path="/overview" element={<Overview/>}/>
+    <Route path="/daily" element={<Daily/>} />
+    <Route path="/monthly" element={<Monthly/>}/>
+    <Route path="/breakdown" element={<Breakdown/>}/>
+    <Route path="admin" element={<Admin/>} />
+<Route path="/performance" element={<Performance/>}/>
     </Route>
         </Routes>
 </ThemeProvider>
